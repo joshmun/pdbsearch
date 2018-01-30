@@ -12,11 +12,11 @@ function Cards(props) {
   )
 }
 
-class ListProtein extends React.Component {
+class ListProteins extends React.Component {
   render() {
     console.log(firstHIV["Result Set"]);
     return <Cards results={firstHIV} />
   }
 }
 
-export default ListProtein;
+export default ListProteins;

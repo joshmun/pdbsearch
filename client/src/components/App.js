@@ -1,11 +1,11 @@
 import React from 'react';
-import ListProtein from './ListProtein';
+import ListProteins from './ListProteins';
 
 const App = () => {
     return (
       <div>
         <div>Hello World!</div>
-        <ListProtein />
+        <ListProteins />
       </div>
     );
 };
