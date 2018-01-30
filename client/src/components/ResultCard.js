@@ -2,7 +2,12 @@ import React from 'react';
 
 class ResultCard extends React.Component {
   render() {
-    return <h1>{this.props.result["PDB ID"]}</h1>;
+    return (
+      <div>
+        <h1>{this.props.result["PDB ID"]}</h1>
+        <h2>{this.props.result.Title}</h2>
+      </div>
+    )
   }
 }
 
