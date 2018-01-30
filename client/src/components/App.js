@@ -3,8 +3,10 @@ import ListProtein from './ListProtein';
 
 const App = () => {
     return (
-      <div>Hello World!</div>,
-      <ListProtein />
+      <div>
+        <div>Hello World!</div>
+        <ListProtein />
+      </div>
     );
 };
 

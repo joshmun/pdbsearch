@@ -14,6 +14,7 @@ function Cards(props) {
 
 class ListProtein extends React.Component {
   render() {
+    console.log(firstHIV["Result Set"]);
     return <Cards results={firstHIV} />
   }
 }

@@ -4,8 +4,8 @@ class ResultCard extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.result["PDB ID"]}</h1>
-        <h2>{this.props.result.Title}</h2>
+        <h3>{this.props.result["PDB ID"]}</h3>
+        <p>{this.props.result.Title}</p>
       </div>
     )
   }
