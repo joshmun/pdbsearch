@@ -1,16 +1,30 @@
 import React from 'react';
 
+function listAuthors(proteins) {
+  const authors = proteins.Authors;
+  const authorsList = authors.map((author, index) => {
+    (index ? ', ' : '')
+
+    return (
+      <a className="querySearchLink" href={`/pdb/search/smartSubquery.do?smartSearchSubtype=AdvancedAuthorQuery&amp;exactMatch=false&amp;searchType=All%20Authors&amp;audit_author.name=${author}`}>
+        {author}
+      </a>
+      )
+  })
+  return authorsList;
+}
+
 class ResultCard extends React.Component {
   render() {
     return (
       <div>
         <h3>{this.props.result["PDB ID"]}</h3>
         <p>{this.props.result.Title}</p>
+        <p>{listAuthors(this.props.result)}</p>
       </div>
     )
   }
 }
-
 
 // const ResultCard = (props) => {
 //   return (
