@@ -27,6 +27,7 @@ function listLigands(proteins) {
 class ResultCard extends React.Component {
   render() {
     return (
+
       <div>
         <h3>{this.props.result["PDB ID"]}</h3>
         <p>{this.props.result.Title}</p>
