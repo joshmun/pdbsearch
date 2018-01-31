@@ -4,7 +4,6 @@ import ListProteins from './ListProteins';
 const App = () => {
     return (
       <div>
-        <div>Hello World!</div>
         <ListProteins />
       </div>
     );
