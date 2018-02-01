@@ -1,5 +1,6 @@
 import React from 'react';
 import Time from 'react-time';
+import ProteinAvatar from './ProteinAvatar';
 
 function listAuthors(proteins) {
   const authors = proteins.Authors;
@@ -27,6 +28,7 @@ function listLigands(proteins) {
 class ResultCard extends React.Component {
   render() {
     return (
+      <ProteinAvatar result={this.props.result} />,
 
       <div>
         <h3>{this.props.result["PDB ID"]}</h3>
