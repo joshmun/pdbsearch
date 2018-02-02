@@ -16,6 +16,9 @@
     "express": "^4.16.2",
     "moment": "^2.20.1",
     "nodemon": "^1.14.11",
-    "react-time": "^4.3.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-time": "^4.3.0",
+    "reactstrap": "^5.0.0-beta"
   }
 }
