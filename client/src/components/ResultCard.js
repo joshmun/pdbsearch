@@ -1,6 +1,8 @@
 import React from 'react';
 import Time from 'react-time';
 import ProteinAvatar from './ProteinAvatar';
+import { Container, Row, Col } from 'reactstrap';
+
 
 function listAuthors(proteins) {
   const authors = proteins.Authors;
@@ -28,60 +30,59 @@ function listLigands(proteins) {
 class ResultCard extends React.Component {
   render() {
     return (
-      <div>
-        <div>
-          <ProteinAvatar result={this.props.result} />
-        </div>
+        <Row className="oneSearchResult">
+          <Col xs="6" sm="4">
+            <ProteinAvatar result={this.props.result} />
+          </Col>
 
-        <div>
-          <h3>{this.props.result["PDB ID"]}</h3>
-          <p>{this.props.result.Title}</p>
-          <p>{listAuthors(this.props.result)}</p>
-          <p dangerouslySetInnerHTML={{__html: this.props.result.Citation}}></p>
+          <Col xs="6">
+            <h3>{this.props.result["PDB ID"]}</h3>
+            <p>{this.props.result.Title}</p>
+            <p>{listAuthors(this.props.result)}</p>
+            <p dangerouslySetInnerHTML={{__html: this.props.result.Citation}}></p>
 
-          <div className="row">
-            <div>
-              <p>
-                <strong>Released: </strong><Time value={this.props.result["Released Date"]} format="M/DD/YYYY" /><br></br>
-                <strong>Method: </strong>{this.props.result.Method}<br></br>
-                <strong>Resolution: </strong>{this.props.result.Resolution}<br></br>
-                <strong>Residue Count: </strong>{this.props.result["Residue Count"]}<br></br>
-              </p>
-            </div>
-            <div>
-              <p>
-                <strong>Macromolecule: </strong>{this.props.result.Macromolecule}<br></br>
-                <strong>Unique Ligands: </strong>{listLigands(this.props.result)}<br></br>
-                <strong>Search term match score: </strong>{this.props.result.Score}<br></br>
-              </p>
-            </div>
-          </div>
+            <Row>
+              <Col>
+                <p>
+                  <strong>Released: </strong><Time value={this.props.result["Released Date"]} format="M/DD/YYYY" /><br></br>
+                  <strong>Method: </strong>{this.props.result.Method}<br></br>
+                  <strong>Resolution: </strong>{this.props.result.Resolution}<br></br>
+                  <strong>Residue Count: </strong>{this.props.result["Residue Count"]}<br></br>
+                </p>
+              </Col>
+              <Col>
+                <p>
+                  <strong>Macromolecule: </strong>{this.props.result.Macromolecule}<br></br>
+                  <strong>Unique Ligands: </strong>{listLigands(this.props.result)}<br></br>
+                  <strong>Search term match score: </strong>{this.props.result.Score}<br></br>
+                </p>
+              </Col>
+            </Row>
 
-          <p>
-            <br></br>
-            <strong>Matched fields in {this.props.result["PDB ID"]}.cif</strong>:
-            <small></small>
-          </p>
+            <p>
+              <strong>Matched fields in {this.props.result["PDB ID"]}.cif</strong>:
+              <small></small>
+            </p>
 
-          <ul>
-            <li>
-              <small>
-                <strong>_citation.title</strong>: <span dangerouslySetInnerHTML={{__html: this.props.result.highlighting["citation.title"]}}></span>
-              </small>
-            </li>
-            <li>
-              <small>
-                <strong>_struct.title</strong>: <span dangerouslySetInnerHTML={{__html: this.props.result.highlighting["struct.title"]}}></span>
-              </small>
-            </li>
-            <li>
-              <small>
-                <strong>_struct_keywords.text</strong>: <span dangerouslySetInnerHTML={{__html: this.props.result.highlighting["struct_keywords.text"]}}></span>
-              </small>
-            </li>
-          </ul>
-        </div>
-      </div>
+            <ul>
+              <li>
+                <small>
+                  <strong>_citation.title</strong>: <span dangerouslySetInnerHTML={{__html: this.props.result.highlighting["citation.title"]}}></span>
+                </small>
+              </li>
+              <li>
+                <small>
+                  <strong>_struct.title</strong>: <span dangerouslySetInnerHTML={{__html: this.props.result.highlighting["struct.title"]}}></span>
+                </small>
+              </li>
+              <li>
+                <small>
+                  <strong>_struct_keywords.text</strong>: <span dangerouslySetInnerHTML={{__html: this.props.result.highlighting["struct_keywords.text"]}}></span>
+                </small>
+              </li>
+            </ul>
+          </Col>
+        </Row>
     )
   }
 }
