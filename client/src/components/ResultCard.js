@@ -35,9 +35,9 @@ class ResultCard extends React.Component {
             <ProteinAvatar result={this.props.result} />
           </Col>
 
-          <Col xs="6">
-            <h3>{this.props.result["PDB ID"]}</h3>
-            <p>{this.props.result.Title}</p>
+          <Col>
+            <h3><a href={`/structure/${this.props.result["PDB ID"]}`}>{this.props.result["PDB ID"]}</a></h3>
+            <p><a href={`/structure/${this.props.result["PDB ID"]}`}>{this.props.result.Title}</a></p>
             <p>{listAuthors(this.props.result)}</p>
             <p dangerouslySetInnerHTML={{__html: this.props.result.Citation}}></p>
 
