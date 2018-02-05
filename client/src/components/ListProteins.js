@@ -1,5 +1,4 @@
 import React from 'react';
-import firstHIV from '../objects/HIV_SearchResults_ClassicRCSB_First25.json';
 import ResultCard from './ResultCard';
 
 function Cards(props) {
@@ -14,8 +13,8 @@ function Cards(props) {
 
 class ListProteins extends React.Component {
   render() {
-    console.log(firstHIV["Result Set"]);
-    return <Cards results={firstHIV} />
+    console.log(this.props.results["Result Set"]);
+    return <Cards results={this.props.results} />
   }
 }
 
