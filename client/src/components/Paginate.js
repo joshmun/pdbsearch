@@ -13,16 +13,12 @@ class Paginate extends React.Component {
     this.props.updateDisplay(this.state.value);
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     const change = {}
     change["value"] = e.target.value
     console.log("hello")
     this.setState(change)
   }
-  // change = (e) => {
-  //   this.setState({ value: e.target.value });
-  //   this.props.updateDisplay(this.state.value);
-  // }
 
   render() {
 
@@ -30,7 +26,7 @@ class Paginate extends React.Component {
       <Row>
         <Col>
           <form>Displaying
-            <select onChange={this.handleChange.bind(this)} value={this.state.value} >
+            <select onChange={this.handleChange} value={this.state.value} >
               <option value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>

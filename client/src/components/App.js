@@ -23,6 +23,7 @@ class App extends React.Component {
     let proteins = showDisplay(this.state.display);
   }
 
+
   updateDisplay = (e) => {
     // this.showDisplay(e);
     this.setState( {display: e} );
