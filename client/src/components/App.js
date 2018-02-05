@@ -3,15 +3,16 @@ import ListProteins from './ListProteins';
 import { Container } from 'reactstrap';
 import Paginate from './Paginate';
 import { createStore } from 'redux';
-import firstHIV from '../objects/HIV_SearchResults_ClassicRCSB_First25.json';
+// import firstHIV from '../objects/HIV_SearchResults_ClassicRCSB_First25.json';
+import allProteins from '../objects/HIV_SearchResults_ClassicRCSB_All.json'
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    let proteins = firstHIV["Result Set"].slice(0, 25);
+    let proteins = allProteins["Result Set"].slice(0, 25);
     this.state = {
-      results: firstHIV,
+      results: proteins,
       display: proteins
     };
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import ResultCard from './ResultCard';
 
 function Cards(props) {
-  const results = props.results["Result Set"];
+  const results = props.results;
   const listResults = results.map((result) =>
     <li key={result["PDB ID"]} className="list-unstyled"><ResultCard result={result} /></li>
   )
@@ -13,7 +13,7 @@ function Cards(props) {
 
 class ListProteins extends React.Component {
   render() {
-    console.log(this.props.results["Result Set"]);
+    console.log(this.props.results);
     return <Cards results={this.props.results} />
   }
 }
