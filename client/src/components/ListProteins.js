@@ -3,6 +3,8 @@ import ResultCard from './ResultCard';
 
 function Cards(props) {
   const results = props.results;
+  console.log(results);
+  console.log(props);
   const listResults = results.map((result) =>
     <li key={result["PDB ID"]} className="list-unstyled"><ResultCard result={result} /></li>
   )

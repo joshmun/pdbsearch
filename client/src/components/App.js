@@ -10,29 +10,30 @@ import allProteins from '../objects/HIV_SearchResults_ClassicRCSB_All.json'
 class App extends React.Component {
   constructor(props) {
     super(props);
+    let proteins = showDisplay();
 
     this.state = {
       results: proteins,
       display: 25
     };
 
-    function showDisplay(range){
+    function showDisplay(range = 25){
       return allProteins["Result Set"].slice(0, range)
     }
 
-    let proteins = showDisplay(this.state.display);
   }
 
 
-  updateDisplay = (e) => {
+  updateDisplay = () => {
     // this.showDisplay(e);
-    this.setState( {display: e} );
+    // this.setState( {display: e} );
+    console.log("HELLO!");
   }
 
   render() {
     return (
       <Container>
-        <Paginate updateDisplay={this.updateDisplay()} />
+        <Paginate updateDisplay={this.updateDisplay} />
         <ListProteins results={this.state.results} />
       </Container>
     );

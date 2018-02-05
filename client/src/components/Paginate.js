@@ -9,16 +9,16 @@ class Paginate extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.props.updateDisplay(this.state.value);
-  }
-
-  handleChange = (e) => {
-    const change = {}
-    change["value"] = e.target.value
-    console.log("hello")
-    this.setState(change)
-  }
+  // componentDidMount() {
+  //   this.props.updateDisplay(this.state.value);
+  // }
+  //
+  // handleChange = (e) => {
+  //   const change = {}
+  //   change["value"] = e.target.value
+  //   console.log("hello")
+  //   this.setState(change)
+  // }
 
   render() {
 
@@ -26,12 +26,13 @@ class Paginate extends React.Component {
       <Row>
         <Col>
           <form>Displaying
-            <select onChange={this.handleChange} value={this.state.value} >
+            <select>
               <option value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>
               <option value="100">100</option>
             </select> Results
+            <button onClick={this.props.updateDisplay()}>Update!</button>
           </form>
         </Col>
       </Row>
