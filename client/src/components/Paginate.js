@@ -5,20 +5,14 @@ class Paginate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 10
+      value: 25
     }
   }
 
-  // componentDidMount() {
-  //   this.props.updateDisplay(this.state.value);
-  // }
-  //
-  // handleChange = (e) => {
-  //   const change = {}
-  //   change["value"] = e.target.value
-  //   console.log("hello")
-  //   this.setState(change)
-  // }
+  handleClick = (e) => {
+    this.setState({value: e.target.value});
+    this.props.updateDisplay(e.target.value);
+  }
 
   render() {
 
@@ -26,13 +20,12 @@ class Paginate extends React.Component {
       <Row>
         <Col>
           <form>Displaying
-            <select>
+            <select onChange={this.handleClick} value={this.state.value}>
               <option value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>
               <option value="100">100</option>
             </select> Results
-            <button onClick={this.props.updateDisplay()}>Update!</button>
           </form>
         </Col>
       </Row>

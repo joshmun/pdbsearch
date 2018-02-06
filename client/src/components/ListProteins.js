@@ -3,8 +3,6 @@ import ResultCard from './ResultCard';
 
 function Cards(props) {
   const results = props.results;
-  console.log(results);
-  console.log(props);
   const listResults = results.map((result) =>
     <li key={result["PDB ID"]} className="list-unstyled"><ResultCard result={result} /></li>
   )
@@ -15,7 +13,6 @@ function Cards(props) {
 
 class ListProteins extends React.Component {
   render() {
-    console.log(this.props.results);
     return <Cards results={this.props.results} />
   }
 }
