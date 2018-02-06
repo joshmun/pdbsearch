@@ -12,7 +12,8 @@ class App extends React.Component {
 
     this.state = {
       results: proteins,
-      display: 25
+      display: 25,
+      total: allProteins["Result Set"].length
     };
   }
 
@@ -30,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <Container>
-        <Paginate updateDisplay={this.updateDisplay} />
+        <Paginate updateDisplay={this.updateDisplay} total={this.state.total} />
         <ListProteins results={this.state.results} />
       </Container>
     );

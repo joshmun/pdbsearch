@@ -1,5 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
+import Pagination from "rc-pagination";
+import 'rc-pagination/assets/index.css';
 
 class Paginate extends React.Component {
   constructor(props) {
@@ -17,6 +19,9 @@ class Paginate extends React.Component {
   render() {
     return (
       <Row>
+        <Col>
+          <Pagination simple defaultCurrent={1} pageSize={this.state.value} total={this.props.total} />
+        </Col>
         <Col>
           <form>
             Displaying{" "}
