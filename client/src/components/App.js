@@ -1,10 +1,9 @@
-import React from 'react';
-import ListProteins from './ListProteins';
-import { Container } from 'reactstrap';
-import Paginate from './Paginate';
-import { createStore } from 'redux';
-import allProteins from '../objects/HIV_SearchResults_ClassicRCSB_All.json'
-
+import React from "react";
+import ListProteins from "./ListProteins";
+import { Container } from "reactstrap";
+import Paginate from "./Paginate";
+import { createStore } from "redux";
+import allProteins from "../objects/HIV_SearchResults_ClassicRCSB_All.json";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,19 +14,18 @@ class App extends React.Component {
       results: proteins,
       display: 25
     };
-
   }
 
   showDisplay = (range = 25) => {
-    return allProteins["Result Set"].slice(0, range)
-  }
+    return allProteins["Result Set"].slice(0, range);
+  };
 
-  updateDisplay = (range) => {
-    this.setState( {
+  updateDisplay = range => {
+    this.setState({
       results: this.showDisplay(range),
       display: range
-    } );
-  }
+    });
+  };
 
   render() {
     return (
@@ -37,6 +35,6 @@ class App extends React.Component {
       </Container>
     );
   }
-};
+}
 
 export default App;
