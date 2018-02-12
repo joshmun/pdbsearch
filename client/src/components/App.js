@@ -15,6 +15,7 @@ class App extends React.Component {
       display: 25,
       total: allProteins["Result Set"].length
     };
+
   }
 
   showDisplay = (range = 25) => {
