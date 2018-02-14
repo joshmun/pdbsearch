@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const proteinRouter = require('./routes/protein_router');
 const allProteins = require('./database/objects/HIV_SearchResults_ClassicRCSB_All.json');
 
 const getHiv = () => {
