@@ -2,25 +2,10 @@ import React from "react";
 import ListProteins from "./ListProteins";
 import { Container } from "reactstrap";
 import Paginate from "./Paginate";
+import GetProteins from './GetProteins';
 import { createStore } from "redux";
 
-// import allProteins from "../objects/HIV_SearchResults_ClassicRCSB_All.json";
-
-
-
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   // let proteins = this.showDisplay();
-  //
-  //   this.state = {
-  //     results: null,
-  //     display: 25,
-  //     total: null
-  //   };
-  //
-  // }
-
   componentWillMount() {
     let proteins;
     fetch('/proteins/start')
@@ -30,6 +15,7 @@ class App extends React.Component {
       proteins = data;
       console.log(proteins)
       this.setState({
+        hiv: proteins,
         results: proteins,
         display: 25,
         total: proteins.length
@@ -37,21 +23,13 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount(){
-    this.cacheProtein()
-  }
-
-  // showDisplay = (range = 25) => {
-  //   return allProteins["Result Set"].slice(0, range);
-  // };
-
   cacheProtein = () => {
     fetch('/proteins')
     .then( results => {
       return results.json();
     }).then(data => {
       this.setState({
-        results: data,
+        hiv: data,
         total: data.length
       })
     })
@@ -59,19 +37,20 @@ class App extends React.Component {
 
   updateDisplay = range => {
     this.setState({
-      results: this.showDisplay(range),
+      results: this.state.hiv.slice(0, range),
       display: range
     });
   };
 
   render() {
-    if(this.state == null){
-      return false
+    if(this.state === null){
+      return "Loading..."
     }
     return (
       <Container>
         <Paginate updateDisplay={this.updateDisplay} total={this.state.total} />
         <ListProteins results={this.state.results} />
+        <GetProteins cacheProtein={this.cacheProtein} />
       </Container>
     );
   }

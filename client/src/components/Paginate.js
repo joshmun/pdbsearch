@@ -16,6 +16,7 @@ class Paginate extends React.Component {
     this.props.updateDisplay(e.target.value);
   };
 
+
   render() {
     return (
       <Row>
