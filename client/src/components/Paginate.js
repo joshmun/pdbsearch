@@ -7,21 +7,26 @@ class Paginate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 25
+      value: 25,
+      page: 1
     };
   }
 
   handleClick = e => {
     this.setState({ value: e.target.value });
-    this.props.updateDisplay(e.target.value);
   };
+
+  paginate = (currentPage, pageSize) => {
+    console.log("hello!");
+    this.props.updateDisplay(currentPage, pageSize);
+  }
 
 
   render() {
     return (
       <Row>
         <Col>
-          <Pagination simple defaultCurrent={1} pageSize={this.state.value} total={this.props.total} />
+          <Pagination simple defaultCurrent={1} pageSize={this.state.value} total={this.props.total} onChange={() => this.paginate(this.state.page, this.state.value)} />
         </Col>
         <Col>
           <form>

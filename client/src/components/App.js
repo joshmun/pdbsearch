@@ -35,10 +35,21 @@ class App extends React.Component {
     })
   }
 
-  updateDisplay = range => {
+  updateDisplay = (currentPage, pageSize) => {
+    let start;
+    let last
+    if(currentPage===1){
+      start = 0
+      last = pageSize
+    }
+    else {
+      start = pageSize*currentPage
+      last = start + pageSize
+    }
+
     this.setState({
-      results: this.state.hiv.slice(0, range),
-      display: range
+      results: this.state.hiv.slice(start, last),
+      display: pageSize
     });
   };
 
