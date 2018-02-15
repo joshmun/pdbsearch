@@ -26,7 +26,7 @@ class Paginate extends React.Component {
     return (
       <Row>
         <Col>
-          <Pagination simple defaultCurrent={1} pageSize={this.state.value} total={this.props.total} onChange={() => this.paginate(this.state.page, this.state.value)} />
+          <Pagination simple pageSize={this.state.value} total={this.props.total} onChange={() => this.paginate(this.state.page, this.state.value)} />
         </Col>
         <Col>
           <form>
